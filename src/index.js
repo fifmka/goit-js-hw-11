@@ -11,7 +11,7 @@ const loadMore = document.querySelector('.load-more');
 
 form.addEventListener('submit', onSubmitForm);
 loadMore.addEventListener('click', onLoadMore);
-let totalHits = 0;
+// let totalHits = 0;
 
 const newsApi = new NewsApi();
 let lightbox = new SimpleLightbox('.gallery a');
