@@ -11,7 +11,6 @@ const loadMore = document.querySelector('.load-more');
 
 form.addEventListener('submit', onSubmitForm);
 loadMore.addEventListener('click', onLoadMore);
-// let totalHits = 0;
 
 const newsApi = new NewsApi();
 let lightbox = new SimpleLightbox('.gallery a');
@@ -27,7 +26,7 @@ async function onSubmitForm(e) {
   newsApi.resetPage();
   try {
     let response = await newsApi.fetchPhoto();
-    totalHits = response.data.totalHits;
+    let totalHits = response.data.totalHits;
     if (totalHits > 0)
       Notiflix.Notify.info(`Hooray! We found ${totalHits} images`);
     let setPhotos = response.data.hits;
