@@ -37,7 +37,9 @@ async function onSubmitForm(e) {
     } else {
       createMarkUpPhoto(gallery, setPhotos);
       lightbox.refresh();
-      loadMore.classList.remove('is-hidden');
+      if (totalHits < newsApi.per_page) {
+        loadMore.classList.add('is-hidden');
+      } else loadMore.classList.remove('is-hidden');
     }
   } catch (error) {
     Notiflix.Notify.failure(`Request error`);
@@ -45,10 +47,12 @@ async function onSubmitForm(e) {
 }
 
 async function onLoadMore(e) {
+  loadMore.classList.add('is-hidden');
   if (e.target.tagName !== 'BUTTON') return;
   try {
     let response = await newsApi.fetchPhoto();
     let setPhotos = response.data.hits;
+
     createMarkUpPhoto(gallery, setPhotos);
     lightbox.refresh();
     scrollTo();
@@ -57,6 +61,8 @@ async function onLoadMore(e) {
       Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results"
       );
+    } else {
+      loadMore.classList.remove('is-hidden');
     }
   } catch (error) {
     Notiflix.Notify.failure(`Request error`);
