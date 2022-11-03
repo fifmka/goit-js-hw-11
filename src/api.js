@@ -25,7 +25,6 @@ export default class NewsApi {
       this.page += 1;
       return response;
     } catch (error) {
-      console.log(error);
       throw new Error(error);
     }
   }

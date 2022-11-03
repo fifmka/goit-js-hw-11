@@ -40,8 +40,7 @@ async function onSubmitForm(e) {
       loadMore.classList.remove('is-hidden');
     }
   } catch (error) {
-    console.log(error);
-    Notiflix.Notify.failure(error.message);
+    Notiflix.Notify.failure(`Request error`);
   }
 }
 
@@ -60,8 +59,7 @@ async function onLoadMore(e) {
       );
     }
   } catch (error) {
-    console.log(error);
-    Notiflix.Notify.failure(error.message);
+    Notiflix.Notify.failure(`Request error`);
   }
 }
 
