@@ -60,6 +60,7 @@ async function onLoadMore(e) {
       );
     }
   } catch (error) {
+    console.log(error);
     Notiflix.Notify.failure(`Request error`);
   }
 }
