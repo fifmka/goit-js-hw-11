@@ -41,7 +41,8 @@ async function onSubmitForm(e) {
       loadMore.classList.remove('is-hidden');
     }
   } catch (error) {
-    Notiflix.Notify.failure(`Request error`);
+    console.log(error);
+    Notiflix.Notify.failure(error.message);
   }
 }
 
